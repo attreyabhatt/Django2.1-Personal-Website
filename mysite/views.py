@@ -1,10 +1,25 @@
+import json
+
+import requests
 from django.shortcuts import render
 
 from .models import Contact
 
 
 def index(request):
-    return render(request, 'mysite/index.html')
+    if request.method == 'POST':
+
+        firstname = request.POST.get('fname')
+        lastname = request.POST.get('lname')
+
+        r = requests.get('http://api.icndb.com/jokes/random?firstName=' + firstname + '&lastName=' + lastname)
+        json_data = json.loads(r.text)
+        joke = json_data.get('value').get('joke')
+        context = {'joke': joke}
+
+        return render(request, 'mysite/index.html', context)
+    else:
+        return render(request, 'mysite/index.html')
 
 
 def portfolio(request):

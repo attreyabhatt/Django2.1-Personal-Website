@@ -4,14 +4,15 @@
     <div class="container">
         <div class="row" style="margin-top: 100px">
             <div class="col-sm-6">
-                <form class="form-inline">
+                <form class="form-inline" action="{% url 'home' %}" method="post">
+                    {% csrf_token %}
                     <label class="sr-only" for="inlineFormInputName2">First Name</label>
                     <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2"
-                           placeholder="First Name">
+                           placeholder="First Name" name="fname">
 
                     <label class="sr-only" for="inlineFormInputName2">Last Name</label>
                     <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2"
-                           placeholder="Last Name">
+                           placeholder="Last Name" name="lname">
 
 
                     <button type="submit" class="btn btn-secondary mb-2">Tell me a Chuck Norris Joke!</button>
@@ -21,9 +22,16 @@
                 <div class="card" style="width: 40rem;">
                     <div class="card-body">
                         <h5 class="card-title">Chuck Norris</h5>
-                        <p class="card-text">Newton's Third Law is wrong: Although it states that for each action, there
-                            is an equal and opposite reaction, there is no force equal in reaction to a Attreya Bhatt
-                            roundhouse kick.</p>
+                        <p class="card-text">
+                            {% if 'joke' %}
+                                {{ joke }}
+                            {% else %}
+                                Newton's Third Law is wrong: Although it states that for each action, there
+                                is an equal and opposite reaction, there is no force equal in reaction to a Attreya
+                                Bhatt
+                                roundhouse kick.
+                            {% endif %}
+                        </p>
                         <a href="{% url 'portfolio' %}" class="card-link">Check out my portfolio</a>
                     </div>
                 </div>
