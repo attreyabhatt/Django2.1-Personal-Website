@@ -1,5 +1,35 @@
 {% extends 'mysite/base.html' %}
 
 {% block content %}
-    <p>This is the homepage</p>
+    <div class="container">
+        <div class="row" style="margin-top: 100px">
+            <div class="col-sm-6">
+                <form class="form-inline">
+                    <label class="sr-only" for="inlineFormInputName2">First Name</label>
+                    <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2"
+                           placeholder="First Name">
+
+                    <label class="sr-only" for="inlineFormInputName2">Last Name</label>
+                    <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2"
+                           placeholder="Last Name">
+
+
+                    <button type="submit" class="btn btn-secondary mb-2">Tell me a Chuck Norris Joke!</button>
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <div class="card" style="width: 40rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Chuck Norris</h5>
+                        <p class="card-text">Newton's Third Law is wrong: Although it states that for each action, there
+                            is an equal and opposite reaction, there is no force equal in reaction to a Attreya Bhatt
+                            roundhouse kick.</p>
+                        <a href="{% url 'portfolio' %}" class="card-link">Check out my portfolio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
 {% endblock %}
