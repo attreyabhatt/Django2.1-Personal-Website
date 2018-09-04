@@ -18,8 +18,13 @@ def index(request):
         context = {'joke': joke}
 
         return render(request, 'mysite/index.html', context)
+
     else:
-        return render(request, 'mysite/index.html')
+        r = requests.get('http://api.icndb.com/jokes/random?firstName=Attreya&lastName=Bhatt')
+        json_data = json.loads(r.text)
+        joke = json_data.get('value').get('joke')
+        context = {'joke': joke}
+        return render(request, 'mysite/index.html', context)
 
 
 def portfolio(request):
