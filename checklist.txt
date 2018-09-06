@@ -1,0 +1,21 @@
+- Copy the project seperately
+- Go to 'Getting Started on Heroku with Python'
+- Create an Heroku account
+- install pipenv
+- Install git ( check git --version)
+- Install Heroku CLI
+- Login heroku
+- Create a virtual enviroment
+- Run manage.py not gonna run - pip freeze nothing installing
+- Check which version django,requests you have and install it
+- Run manage.py and then stop it
+- Go to django heroku
+- Create a Procfile and
+- Install django-heroku
+- Add stuff to settings.py file
+- Install guincorn
+- pip freeze > requirements.txt
+- heroku create attreyaweb (to create an app on heroku)
+- git status git commands (git push heroku master)
+- Open up the website
+- Admin panel not working. heroku run bash. Migrations
